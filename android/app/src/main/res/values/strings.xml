@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">yuzeeMtmTestSearch</string>
+    <string name="title_activity_main">yuzeeMtmTestSearch</string>
+    <string name="package_name">com.yuzeetest.mtm</string>
+    <string name="custom_url_scheme">com.yuzeetest.mtm</string>
+</resources>

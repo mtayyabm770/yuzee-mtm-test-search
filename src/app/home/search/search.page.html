@@ -1,0 +1,138 @@
+<ion-header>
+  <ion-toolbar class="search-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button
+        mode="ios"
+        text=""
+        defaultHref="admin"
+        color="primary"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-searchbar
+      mode="ios"
+      class="header-search-input"
+      placeholder="Search"
+    ></ion-searchbar>
+  </ion-toolbar>
+  <ion-toolbar class="ion-margin-horizontal">
+    <div class="category-content">
+      <ion-button
+        *ngFor="let category of categoryList"
+        class="ion-margin-bottom ion-margin-end"
+        color="medium"
+        fill="outline"
+      >
+        {{category.title}}
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-content">
+  <!-- Recent Searches list -->
+  <ion-list class="search-list" lines="none">
+    <ion-list-header>
+      <ion-label> Recent Searches </ion-label>
+      <ion-button fill="clear" color="primary">Clear</ion-button>
+    </ion-list-header>
+    <ion-item *ngFor="let searchItem of recentSearchList">
+      <ion-avatar class="recent-search-avatar" slot="start">
+        <ion-icon *ngIf="!searchItem.image" name="search"></ion-icon>
+        <img *ngIf="searchItem.image" [src]="searchItem.image" />
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <div>{{searchItem.search}}</div>
+        <ion-text color="medium" *ngIf="searchItem.category">
+          {{searchItem.category}}
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- People Suggestion list -->
+  <ion-list class="search-list" lines="none">
+    <ion-list-header>
+      <ion-label> People you may know </ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let people of peopleSuggestionList">
+      <ion-avatar class="profile-avatar" slot="start">
+        <img *ngIf="people.image" [src]="people.image" />
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <div class="title-text">
+          {{people.name}}
+          <ion-icon
+            *ngIf="people.is_verified"
+            name="checkmark-circle"
+            color="primary"
+          ></ion-icon>
+        </div>
+        <div>{{people.institute}}</div>
+        <ion-text
+          *ngIf="people.mutual_friend_count"
+          color="primary"
+          class="small-text"
+        >
+          {{people.mutual_friend_count}} mutual friends
+        </ion-text>
+      </ion-label>
+      <ion-avatar class="add-people-avatar" slot="end">
+        <ion-icon src="assets/icon/add-people-circle.svg"></ion-icon>
+      </ion-avatar>
+    </ion-item>
+
+    <ion-button mode="ios" fill="clear" expand="block">See more</ion-button>
+  </ion-list>
+
+  <!-- Top courses list -->
+  <ion-list class="search-list" lines="none">
+    <ion-list-header>
+      <ion-label> Top 10 courses </ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let course of coursesList">
+      <ion-avatar class="profile-avatar" slot="start">
+        <img *ngIf="course.logo" [src]="course.logo" />
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <div class="title-text">{{course.name}}</div>
+        <div>{{course.institute}}</div>
+      </ion-label>
+    </ion-item>
+
+    <ion-button mode="ios" fill="clear" expand="block">See all</ion-button>
+  </ion-list>
+
+  <!-- Latest articles Slides -->
+  <ion-list class="search-list" lines="none">
+    <ion-list-header>
+      <ion-label> Latest articles for today </ion-label>
+      <!-- mode IOS added to show see all on small case -->
+      <ion-button fill="clear" color="primary" mode="ios">See all</ion-button>
+    </ion-list-header>
+
+    <ion-slides
+      [options]="blogSlideOpts"
+      class="blog-slides ion-padding-horizontal"
+    >
+      <ion-slide *ngFor="let blog of blogList">
+        <div class="ion-text-start">
+          <img class="blog-img" [src]="blog.image" [alt]="blog.title" />
+          <div class="blog-title">{{blog.title}}</div>
+          <ion-text class="small-text" color="medium"
+            >written by {{blog.writer}}</ion-text
+          >
+          <ion-row>
+            <ion-col size="3">
+              <img [src]="blog.icon" width="20" height="20" />
+            </ion-col>
+            <ion-col class="ion-text-right">
+              <ion-text class="small-text" color="medium">
+                {{blog.created | date: 'dd MMM, yyyy'}}
+              </ion-text>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </ion-list>
+</ion-content>

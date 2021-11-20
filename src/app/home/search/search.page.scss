@@ -1,0 +1,78 @@
+ion-toolbar.search-toolbar {
+  margin-top: 30px;
+  .header-search-input {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    --background: #f7f7f7;
+  }
+}
+
+.category-content {
+  overflow: hidden;
+  overflow-x: scroll;
+  width: 100%;
+  display: inline-flex;
+}
+
+ion-content.page-content {
+  --background: #eeeeee;
+}
+
+ion-list.search-list {
+  margin-top: 10px;
+  ion-list-header {
+    font-size: 16px;
+    font-weight: normal;
+  }
+}
+
+ion-avatar.recent-search-avatar {
+  margin-right: 10px;
+  text-align: center;
+  ion-icon {
+    margin-top: 10px;
+    font-size: 16px;
+    vertical-align: bottom;
+    color: var(--ion-color-medium);
+  }
+}
+
+.title-text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.small-text {
+  font-size: 12px;
+}
+
+.profile-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.add-people-avatar {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  ion-icon {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.blog-slides {
+  .blog-title {
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .blog-img {
+    width: 100%;
+    height: 140px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+}

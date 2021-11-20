@@ -1,0 +1,6 @@
+{
+	"appId": "com.yuzeetest.mtm",
+	"appName": "yuzeeMtmTestSearch",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
